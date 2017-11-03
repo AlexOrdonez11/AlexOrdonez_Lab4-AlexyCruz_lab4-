@@ -5,6 +5,8 @@
  */
 package laboratorio.pkg4_alex;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alex Ordonez
@@ -23,7 +25,7 @@ public abstract class Guerrero {
         this.edad = edad;
         this.salud = salud;
         this.costo = costo;
-        this.ataque = ataque;
+        setAtaque(ataque);
     }
 
     public double getAtaque() {
@@ -31,7 +33,11 @@ public abstract class Guerrero {
     }
 
     public void setAtaque(double ataque) {
-        this.ataque = ataque;
+        if(ataque<=50){
+            this.ataque = ataque;
+        }else{
+            JOptionPane.showMessageDialog(null, "Ataque no debe ser mayor que 50");
+        }
     }
 
     
@@ -64,7 +70,11 @@ public abstract class Guerrero {
     }
 
     public void setSalud(double salud) {
-        this.salud = salud;
+        if(salud<=200&&salud>=100){
+            this.salud = salud;
+        }else{
+            JOptionPane.showMessageDialog(null, "La salud no puede ser mayor a 200 o menor a 100");
+        }        
     }
 
     public double getCosto() {
@@ -72,7 +82,11 @@ public abstract class Guerrero {
     }
 
     public void setCosto(double costo) {
-        this.costo = costo;
+        if(costo<=300){
+            this.costo = costo;
+        }else{
+            JOptionPane.showMessageDialog(null, "costo no puede ser mayor a 300");
+        }
     }
 
     @Override

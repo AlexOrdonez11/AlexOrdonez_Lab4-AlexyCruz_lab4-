@@ -17,7 +17,7 @@ public class jugador {
     public jugador() {
     }
 
-    public jugador(String nombre, int dinero, int puntos, Guerrero guerrero) {
+public jugador(String nombre, int dinero, int puntos, Guerrero guerrero) {
         this.nombre = nombre;
         this.dinero = dinero;
         this.puntos = puntos;

@@ -6,6 +6,7 @@
 package laboratorio.pkg4_alex;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import javax.swing.JOptionPane;
 import java.util.Scanner;
 
@@ -22,7 +23,7 @@ public class Laboratorio4_Alex {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws exception {
         int op = 0;
         while (op != 6) {
             String u=JOptionPane.showInputDialog("1. Crear Guerreros\n"
@@ -31,7 +32,14 @@ public class Laboratorio4_Alex {
                     + "4. Iniciar Partida\n"
                     + "5. Listar Jugadores\n"
                     + "6. Salir");
-            u=enteros(u);
+            while(enteros(u)==false){
+                u=JOptionPane.showInputDialog("1. Crear Guerreros\n"
+                    + "2. Eliminar Guerreros\n"
+                    + "3. Registro de jugadores\n"
+                    + "4. Iniciar Partida\n"
+                    + "5. Listar Jugadores\n"
+                    + "6. Salir");
+            }
             op = Integer.parseInt(u);
             switch (op) {
                 case 1:
@@ -62,24 +70,52 @@ public class Laboratorio4_Alex {
         for (int x = 0; x < guerreros.size(); x++) {
             System.out.println(x + ". " + guerreros.get(x));
         }
-        System.out.println("Ingrese la pocicion del guerrero que desea eliminar");
-        int pos = sc.nextInt();
-        guerreros.remove(pos);
+        try{
+            System.out.println("Ingrese la pocicion del guerrero que desea eliminar");
+            int pos = sc.nextInt();
+            guerreros.remove(pos);
+        }catch(InputMismatchException e){
+            System.out.println("no ingreso un valor valido");
+        }
+            
+        
     }
 
-    public static void CrearGuerreros() {
+    public static void CrearGuerreros() throws exception {
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre");
         int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del guerrero:"));
         String nacimiento = JOptionPane.showInputDialog("Ingrese el lugar de nacimiento");
-        double ataque = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el poder de ataque"));
-        double salud = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la salud"));
-        double costo = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el costo"));
-        int tipo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de guerrero\n"
+        String ata=JOptionPane.showInputDialog("Ingrese el poder de ataque");
+        while(enteros(ata)==false){
+            ata=JOptionPane.showInputDialog("Ingrese el poder de ataque");
+        }
+        double ataque = Double.parseDouble(ata);
+        String sal=JOptionPane.showInputDialog("Ingrese la salud");
+        while(enteros(sal)==false){
+            sal=JOptionPane.showInputDialog("Ingrese la salud");
+        }
+        double salud = Double.parseDouble(sal);
+        String cos=JOptionPane.showInputDialog("Ingrese el costo");
+        while(enteros(cos)==false){
+            cos=JOptionPane.showInputDialog("Ingrese el costo");
+        }
+        double costo = Double.parseDouble(cos);
+        
+        String h=JOptionPane.showInputDialog("Ingrese el tipo de guerrero\n"
                 + "1.mago\n"
                 + "2.elfo\n"
                 + "3.dragon\n"
                 + "4.arqueros\n"
-                + "5.bruja"));
+                + "5.bruja");
+        while(enteros(h)==false){
+            h=JOptionPane.showInputDialog("Ingrese el tipo de guerrero\n"
+                + "1.mago\n"
+                + "2.elfo\n"
+                + "3.dragon\n"
+                + "4.arqueros\n"
+                + "5.bruja");
+        }
+        int tipo = Integer.parseInt(h);
         switch (tipo) {
             case 1:
                 String magia = JOptionPane.showInputDialog("Ingrese el tipo de magia");
@@ -109,9 +145,13 @@ public class Laboratorio4_Alex {
         }
     }
 
-    public static void registro() {
+    public static void registro() throws exception {
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre");
-        int dinero = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el dinero disponible"));
+        String di=JOptionPane.showInputDialog("Ingrese el dinero disponible");
+        while(enteros(di)==false){
+            di=JOptionPane.showInputDialog("Ingrese el dinero disponible");
+        }
+        int dinero = Integer.parseInt(di);
         int puntos = 0;
         JOptionPane.showMessageDialog(null, "Ingrese el guerrero en la consola");
         for (int x = 0; x < guerreros.size(); x++) {
@@ -172,16 +212,20 @@ public class Laboratorio4_Alex {
                     + "El ganador es el jugador: " + jugador2.getNombre());
         }
     }
-    public static String enteros(String x){
-        boolean a=true;
-        String u="";
+    public static boolean enteros(String x)throws exception{
+        boolean o=true;
         try{
-            Integer.parseInt(x);
-        }catch(Exception e){
-            u=JOptionPane.showInputDialog(null, "no ingreseo un numero");
-            a=false;
+            if(Character.isDigit(x.charAt(0))){
+                
+            }else{
+                o=false;
+                throw (new exception("Ha ingresado un numero"));
+            }
+            
+        }catch(exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
         }
-        return u;
+        return o;
     }
 
 }

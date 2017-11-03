@@ -164,18 +164,26 @@ public class Laboratorio4_Alex {
 
     }
 
-    public static void IniciarPartida() {
+    public static void IniciarPartida() throws exception {
         boolean turno = false;
         boolean juego = false;
         for (int x = 0; x < jugadores.size(); x++) {
             System.out.println(x + ". " + jugadores.get(x));
         }
-        System.out.println("Ingrese la pocicion del jugador1 que desea escoger");
-        int pos = sc.nextInt();
-        jugador jugador1 = jugadores.get(pos);
-        System.out.println("Ingrese la pocicion del jugador2 que desea escoger");
-        pos = sc.nextInt();
-        jugador jugador2 = jugadores.get(pos);
+            System.out.println("Ingrese la pocicion del jugador1 que desea escoger");
+            String po = sc.next();
+            while(enteros(po)==false){
+                po=JOptionPane.showInputDialog("Ingrese la posicion");
+            }
+            int pos=Integer.parseInt(po);
+            jugador jugador1 = jugadores.get(pos);
+            System.out.println("Ingrese la pocicion del jugador2 que desea escoger");
+            po = sc.next();
+            while(enteros(po)==false){
+                po=JOptionPane.showInputDialog("Ingrese la posicion");
+            }
+            pos=Integer.parseInt(po);
+            jugador jugador2 = jugadores.get(pos);
         while (juego == false) {
             if (turno == false) {
                 JOptionPane.showMessageDialog(null, "jugador1 salud del guerrero: " + jugador1.getGuerrero().getSalud() + "\n"

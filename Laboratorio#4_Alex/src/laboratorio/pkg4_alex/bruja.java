@@ -16,7 +16,7 @@ public class bruja extends Guerrero{
         super();
     }
 
-    public bruja(String siglo, String residencia, String nombre, String nacimiento, int edad, int salud, int costo, int ataque) {
+    public bruja(String siglo, String residencia, String nombre, String nacimiento, int edad, double salud, double costo, double ataque) {
         super(nombre, nacimiento, edad, salud, costo, ataque);
         this.siglo = siglo;
         this.residencia = residencia;

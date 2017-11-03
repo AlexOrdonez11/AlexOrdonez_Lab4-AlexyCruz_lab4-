@@ -16,7 +16,7 @@ public class elfo extends Guerrero{
         super();
     }
 
-    public elfo(String arma, String rango, String nombre, String nacimiento, int edad, int salud, int costo, int ataque) {
+    public elfo(String arma, String rango, String nombre, String nacimiento, int edad, double salud, double costo, double ataque) {
         super(nombre, nacimiento, edad, salud, costo, ataque);
         this.arma = arma;
         this.rango = rango;

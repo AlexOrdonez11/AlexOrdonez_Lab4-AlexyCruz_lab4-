@@ -16,7 +16,7 @@ public class mago extends Guerrero {
         super();
     }
 
-    public mago(String magia, String elemento, String nombre, String nacimiento, int edad, int salud, int costo, int ataque) {
+    public mago(String magia, String elemento, String nombre, String nacimiento, int edad, double salud, double costo, double ataque) {
         super(nombre, nacimiento, edad, salud, costo, ataque);
         this.magia = magia;
         this.elemento = elemento;

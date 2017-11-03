@@ -25,12 +25,14 @@ public class Laboratorio4_Alex {
     public static void main(String[] args) {
         int op = 0;
         while (op != 6) {
-            op = Integer.parseInt(JOptionPane.showInputDialog("1. Crear Guerreros\n"
+            String u=JOptionPane.showInputDialog("1. Crear Guerreros\n"
                     + "2. Eliminar Guerreros\n"
                     + "3. Registro de jugadores\n"
                     + "4. Iniciar Partida\n"
                     + "5. Listar Jugadores\n"
-                    + "6. Salir"));
+                    + "6. Salir");
+            u=enteros(u);
+            op = Integer.parseInt(u);
             switch (op) {
                 case 1:
                     CrearGuerreros();
@@ -69,9 +71,9 @@ public class Laboratorio4_Alex {
         String nombre = JOptionPane.showInputDialog("Ingrese el nombre");
         int edad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la edad del guerrero:"));
         String nacimiento = JOptionPane.showInputDialog("Ingrese el lugar de nacimiento");
-        int ataque = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el poder de ataque"));
-        int salud = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la salud"));
-        int costo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el costo"));
+        double ataque = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el poder de ataque"));
+        double salud = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la salud"));
+        double costo = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el costo"));
         int tipo = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el tipo de guerrero\n"
                 + "1.mago\n"
                 + "2.elfo\n"
@@ -170,6 +172,16 @@ public class Laboratorio4_Alex {
                     + "El ganador es el jugador: " + jugador2.getNombre());
         }
     }
-    
+    public static String enteros(String x){
+        boolean a=true;
+        String u="";
+        try{
+            Integer.parseInt(x);
+        }catch(Exception e){
+            u=JOptionPane.showInputDialog(null, "no ingreseo un numero");
+            a=false;
+        }
+        return u;
+    }
 
 }

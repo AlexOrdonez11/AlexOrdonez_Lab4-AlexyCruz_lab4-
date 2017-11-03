@@ -23,8 +23,8 @@ public abstract class Guerrero {
         this.nombre = nombre;
         this.nacimiento = nacimiento;
         this.edad = edad;
-        this.salud = salud;
-        this.costo = costo;
+        setSalud(salud);
+        setCosto(costo);
         setAtaque(ataque);
     }
 

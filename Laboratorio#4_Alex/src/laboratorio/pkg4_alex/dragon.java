@@ -15,7 +15,7 @@ public class dragon extends Guerrero{
     public dragon() {
     }
 
-    public dragon(String color, String raza, String nombre, String nacimiento, int edad, int salud, int costo, int ataque) {
+    public dragon(String color, String raza, String nombre, String nacimiento, int edad, double salud, double costo, double ataque) {
         super(nombre, nacimiento, edad, salud, costo, ataque);
         this.color = color;
         this.raza = raza;

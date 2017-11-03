@@ -111,5 +111,33 @@ public class Laboratorio4_Alex {
         guerreros.remove(pos);
         
     }
+    public static void IniciarPartida(){
+        boolean turno=false;
+        boolean juego=false;
+        for (int x=0;x<jugadores.size();x++) {
+            System.out.println(x+". "+jugadores.get(x));
+        }
+        System.out.println("Ingrese la pocicion del jugador1 que desea escoger");
+        int pos=sc.nextInt();
+        jugador jugador1=jugadores.get(pos);
+        System.out.println("Ingrese la pocicion del jugador2 que desea escoger");
+        pos=sc.nextInt();
+        jugador jugador2=jugadores.get(pos);
+        while(juego==false){
+            if(turno==false){
+                JOptionPane.showMessageDialog(null, "jugador1 salud del guerrero: "+jugador1.getGuerrero().getSalud()+"\n"
+                        + "jugador2 salud del guerrero: "+jugador2.getGuerrero().getSalud());
+                JOptionPane.showMessageDialog(null,"Se realizara el ataque del jugador1");
+                jugador1.getGuerrero().Atacar(jugador1, jugador2);
+                turno=true;
+            }else{
+                JOptionPane.showMessageDialog(null, "jugador1 salud del guerrero: "+jugador1.getGuerrero().getSalud()+"\n"
+                        + "jugador2 salud del guerrero: "+jugador2.getGuerrero().getSalud());
+                JOptionPane.showMessageDialog(null,"Se realizara el ataque del jugador1");
+                jugador1.getGuerrero().Atacar(jugador1, jugador2);
+                turno=true;
+            }
+        }
+    }
     
 }
